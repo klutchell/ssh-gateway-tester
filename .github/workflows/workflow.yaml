@@ -20,10 +20,12 @@ jobs:
     steps:
       - name: Setup SSH server for Actor
         uses: alexellis/setup-sshd-actor@master
+        
       - name: Connect to the actuated SSH gateway
         uses: alexellis/actuated-ssh-gateway-action@master
         with:
           gatewayaddr: ${{ secrets.SSH_GATEWAY_IP }}
           secure: true
+          
       - name: Setup a blocking tmux session
         uses: alexellis/block-with-tmux-action@master
